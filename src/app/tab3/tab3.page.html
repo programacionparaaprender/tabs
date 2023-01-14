@@ -1,17 +1,40 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Tab 3
+      Contacto
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 3</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content>
+  <form 
+        (ngSubmit)="onCreate()" 
+        [formGroup]="registerForm">
+  <ion-card>
+	  <ion-card-header>
+	    Formulario de contacto
+	  </ion-card-header>
+	  <ion-card-content>
+	    <ion-item>
+        <ion-label>Nombre:</ion-label>
+        <ion-input [(ngModel)]="nombre" formControlName="nombre" ></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Email:</ion-label>
+        <ion-input [(ngModel)]="email" 
+        formControlName="email"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Password:</ion-label>
+        <ion-input formControlName="password" 
+        [(ngModel)]="password"></ion-input>
+      </ion-item>
+	  </ion-card-content>
+	  <ion-list inset>
+		  <button ion-button color="dark" type="submit">Crear</button>
+		</ion-list>
+	</ion-card>
+  </form>
+  
 
-  <app-explore-container name="Tab 3 page"></app-explore-container>
 </ion-content>
